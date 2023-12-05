@@ -30,5 +30,6 @@ export default {
 header {
     height: 7rem;
     background-color: black;
+    display: flex
 }
 </style>
