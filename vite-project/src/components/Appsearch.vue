@@ -1,3 +1,5 @@
+<script>
+
 export default {
     name: "AppSearch",
     data() {
@@ -15,11 +17,18 @@ export default {
 </script>
 
 <template>
-    <div>
-        <h1>the 10 best breweries in Austria</h1>
-        <input type="text" placeholder="search..." v-model="store.searchString" @keyup.enter="$emit('search')">
-        <button @click="search">search</button>
-    </div>
+    <header>
+        <div>
+            <h1>Boolfix</h1>
+            <input type="text" placeholder="search..." v-model="store.searchString" @keyup.enter="$emit('search')">
+            <button @click="search">search</button>
+        </div>
+    </header>
 </template>
 
-<style scoped></style>
+<style scoped>
+header {
+    height: 7rem;
+    background-color: black;
+}
+</style>
