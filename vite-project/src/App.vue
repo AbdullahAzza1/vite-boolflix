@@ -19,14 +19,21 @@ export default {
 	},
 	methods: {
 		findLinks() {
-			let options = {
+			const options = {
 				method: 'GET',
-				url: 'https://api.themoviedb.org/3/authentication',
+				url: 'https://api.themoviedb.org/3/discover/movie',
+				params: {
+					include_adult: 'false',
+					include_video: 'false',
+					language: 'en-US',
+					page: '1',
+					sort_by: 'popularity.desc'
+				},
 				headers: {
 					accept: 'application/json',
-					Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiMDUzZGYyN2Y4ZTBmNThiMGQxOWI5M2E1ZmQ0Y2Q4YyIsInN1YiI6IjY1NmRlY2QwYTdlMzYzMDEzYWRlNGUzMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.P5X9yZQw5w-pgtY5q5LziNWW2Qnjzr8T2yLVoBk6Hlo'
+					Authorization: 'Bearer b053df27f8e0f58b0d19b93a5fd4cd8c'
 				}
-			}
+			};
 			let ricerca = this.store.apiUrl;
 
 			if (this.store.searchString.length) {
