@@ -38,7 +38,7 @@ export default {
 			axios.get('${store.apiUrl}?api_key-${ store.api_key }&query-${store.searchString}').then(r => {
 				this.store.movies = r.data.results
 				console.log(this.store.movies);
-				console.log(r.data.results, "dati ricevutoi");
+				console.log(r.data.results, "dati:");
 			})
 		},
 	}
