@@ -11,7 +11,7 @@ export default {
 	},
 	data() {
 		return {
-			store,
+			store
 		}
 	},
 	mounted() {
@@ -19,8 +19,6 @@ export default {
 	},
 	methods: {
 		findLinks() {
-
-
 			const options = {
 				method: 'GET',
 				url: 'https://api.themoviedb.org/3/discover/movie',
@@ -37,7 +35,11 @@ export default {
 					Authorization: 'Bearer b053df27f8e0f58b0d19b93a5fd4cd8c'
 				}
 			};
-
+			axios.get('${store.apiUrl}?api_key-${ store.api_key }&query-${store.searchString}').then(r => {
+				this.store.movies = r.data.results
+				console.log(this.store.movies);
+				console.log(r.data.results, "dati ricevutoi");
+			})
 		},
 	}
 }
