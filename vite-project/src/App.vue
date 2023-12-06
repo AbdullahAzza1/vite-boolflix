@@ -15,14 +15,17 @@ export default {
 		}
 	},
 	mounted() {
-		this.findLinks();
+
 	},
 	methods: {
 		findLinks() {
+
+
 			const options = {
 				method: 'GET',
 				url: 'https://api.themoviedb.org/3/discover/movie',
 				params: {
+					certification: 'lord%20of%20the%20rings',
 					include_adult: 'false',
 					include_video: 'false',
 					language: 'en-US',
@@ -34,17 +37,7 @@ export default {
 					Authorization: 'Bearer b053df27f8e0f58b0d19b93a5fd4cd8c'
 				}
 			};
-			let ricerca = this.store.apiUrl;
 
-			if (this.store.searchString.length) {
-				ricerca += `&by_name=${this.store.searchString}`;
-			}
-
-			console.log(ricerca);
-
-			axios.get(ricerca).then(r => {
-				this.store.movies = r.data;
-			});
 		},
 	}
 }
@@ -59,7 +52,7 @@ export default {
 		<AppSearch @search="getCharacters" />
 	</header>
 	<main>
-		<AppMain />
+		<AppMain v-for="movies in store.movies" :info="movies" />
 	</main>
 </template>
 
