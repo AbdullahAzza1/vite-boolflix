@@ -13,7 +13,7 @@ export default {
     <main>
         <div class="card-wrapper">
             <div class="card">
-                <h2> name movies </h2>
+                <img src="" alt="">
                 <p> original film movies </p>
                 <p> language </p>
                 <p> vote </p>

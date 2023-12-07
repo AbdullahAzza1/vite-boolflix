@@ -70,7 +70,7 @@ export default {
 	</header>
 	<main>
 		<h2>film</h2>
-		<AppMain v-for="film in this.store.films" :info="film" />
+		<AppMain v-for="film in store.films" :info="film" />
 		<h2>serie tv</h2>
 	</main>
 </template>
