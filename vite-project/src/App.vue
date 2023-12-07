@@ -18,27 +18,39 @@ export default {
 
 	},
 	methods: {
-		findLinks() {
+		getMovies() {
 			const options = {
 				method: 'GET',
-				url: 'https://api.themoviedb.org/3/discover/movie',
+				url: this.store.seriesUrl,
 				params: {
 					certification: 'lord%20of%20the%20rings',
 					include_adult: 'false',
 					include_video: 'false',
 					language: 'en-US',
 					page: '1',
-					sort_by: 'popularity.desc'
+					sort_by: 'popularity.desc',
+					api_key: 'this.store.apiKey',
+					query: 'this.store.searchString'
 				},
-				headers: {
-					accept: 'application/json',
-					Authorization: 'Bearer b053df27f8e0f58b0d19b93a5fd4cd8c'
-				}
 			};
-			axios.get('${store.apiUrl}?api_key-${ store.api_key }&query-${store.searchString}').then(r => {
-				this.store.movies = r.data.results
-				console.log(this.store.movies);
-				console.log(r.data.results, "dati:");
+			const options1 = {
+				method: 'GET',
+				url: this.store.filmsUrl,
+				params: {
+					certification: 'lord%20of%20the%20rings',
+					include_adult: 'false',
+					include_video: 'false',
+					language: 'en-US',
+					page: '1',
+					sort_by: 'popularity.desc',
+					api_key: 'this.store.apiKey',
+					query: 'this.store.searchString'
+				},
+			};
+
+			axios.get(options1).then(r => {
+				this.store.films = r.data.results
+				console.log(options1);
 			})
 		},
 	}
