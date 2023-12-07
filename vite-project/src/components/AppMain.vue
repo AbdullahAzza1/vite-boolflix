@@ -13,10 +13,8 @@ export default {
     <main>
         <div class="card-wrapper">
             <div class="card">
-                <img src="" alt="">
-                <p> original film movies </p>
-                <p> language </p>
-                <p> vote </p>
+                <img :src="store.image" alt="">
+
             </div>
         </div>
     </main>
