@@ -11,7 +11,7 @@ export default {
 	},
 	data() {
 		return {
-			store
+			store,
 		}
 	},
 	mounted() {
@@ -47,10 +47,13 @@ export default {
 					query: 'this.store.searchString'
 				},
 			};
-
-			axios.get(options1).then(r => {
+			axios.request(options1).then(r => {
 				this.store.films = r.data.results
 				console.log(options1);
+			});
+			axios.request(options).then(r => {
+				this.store.series = r.data.results
+				console.log(options);
 			})
 		},
 	}
@@ -63,10 +66,12 @@ export default {
 <template>
 	<header>
 		<AppHeader />
-		<AppSearch @search="getCharacters" />
+		<AppSearch @search="getMovies" />
 	</header>
 	<main>
-		<AppMain v-for="movies in store.movies" :info="movies" />
+		<h2>film</h2>
+		<AppMain v-for="film in this.store.films" :info="film" />
+		<h2>serie tv</h2>
 	</main>
 </template>
 
